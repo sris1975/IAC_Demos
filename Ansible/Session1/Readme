@@ -1,0 +1,15 @@
+Install Ansible on one linux machine
+command: yum install ansible
+(or) yum install ansible.noarch
+
+Copy hosts file to /etc/ansible
+Update IP address and credentials in hosts file with your machine details
+Ping your hosts to see if they are accesible, proceed only after this step succeeds. Use only Linux machines for now.
+command: ansible all -m ping
+
+Create a folder named session1 and copy all test files to this folder
+
+To run a file:
+ansible-playbook name.yml
+
+Happy practising

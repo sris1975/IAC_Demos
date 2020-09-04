@@ -1,0 +1,16 @@
+---
+- hosts: servers
+  tasks:
+  - name: Copy file
+    copy:
+      src: /etc/ansible/session1/test.sh
+      dest: /etc/tmp/test.sh
+  - name: Change the permission of the script
+    file:
+      path: /etc/tmp/test.sh
+      owner: root
+      group: root
+      mode: '1777'
+  - name: Execute the script
+    command:
+      cmd: sh /etc/tmp/test.sh

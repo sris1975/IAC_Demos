@@ -1,0 +1,8 @@
+[all:vars]
+# [servers:vars]
+ansible_connection=ssh
+ansible_user=xxx
+ansible_ssh_pass=xxx
+
+[servers]
+172.29.18.250
