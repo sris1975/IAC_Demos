@@ -1,0 +1,21 @@
+
+- hosts: servers
+  vars:
+    myname: srinivas
+    participants:
+      - Khaja
+      - Sanjeev
+      - Sai
+  tasks:
+  - include_tasks: Includeme.yml
+  - include_vars: vars.yml
+  - name: print
+    debug:
+      msg: "{{ myname }}"
+  - name: print
+    debug:
+      msg: "{{ participants[2] }}"
+  - name: print
+    debug:
+      msg: "{{ Country }}"
+  

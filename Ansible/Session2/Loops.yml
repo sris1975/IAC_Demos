@@ -1,0 +1,18 @@
+
+- hosts: servers
+  gather_facts: true
+  tasks:
+  - name: Ensure latest version
+    yum:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - httpd
+      - ansible
+  - name: Execute the script
+    command:
+      cmd: sh /etc/tmp/test.sh
+    when: ansible_facts['os_family'] == "Debian"
+  - name: print
+    debug:
+      msg: "{{ ansible_os_family }}"

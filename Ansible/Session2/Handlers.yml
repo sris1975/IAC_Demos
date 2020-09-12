@@ -1,0 +1,14 @@
+---
+- hosts: servers
+  tasks:
+  - name: ensure apache is at the latest version
+    yum:
+      name: httpd
+      state: present
+    notify:
+      Start apache
+  handlers:
+  - name: Start apache
+    service:
+      name: httpd
+      state: started

@@ -1,0 +1,24 @@
+
+- hosts: servers
+  vars:
+    myname: srinivas
+    participants:
+      - Khaja
+      - Sanjeev
+      - Srini
+    Address:
+      Hno: 1
+      Street : MyStreet
+      City: Hyderabad
+  tasks:
+  - name: print
+    debug:
+      msg: "{{ myname }}"
+  - name: print
+    debug:  
+      msg: "{{ participants[2] }}"
+  - name: print
+    debug:  
+      msg: "{{ Address.Hno }}"
+
+ 
