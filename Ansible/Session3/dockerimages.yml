@@ -1,0 +1,13 @@
+- hosts: local
+  connection: local
+  tasks:
+  - name: print
+    docker_image:
+      name: nginx
+      source: pull
+
+  - name: Create default containers
+    docker_container:
+      name: docker
+      image: nginx
+      state: present

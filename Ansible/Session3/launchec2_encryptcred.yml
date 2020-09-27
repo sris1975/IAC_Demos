@@ -1,0 +1,16 @@
+- hosts: local
+  connection: local
+  tasks:
+  - include_vars: ec2_pass.yml
+  - name: Start EC2 instance
+    ec2:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      key_name: mykey
+      instance_type: t2.micro
+      image: ami-0603cbe34fd08cb81
+      wait: yes
+      count: 1
+      region: us-east-2
+      vpc_subnet_id:  subnet-ae96e1e2
+      assign_public_ip: yes

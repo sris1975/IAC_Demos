@@ -1,0 +1,14 @@
+- hosts: local
+  connection: local
+  gather_facts: false
+  tasks:
+  - name: EC2 facts
+    ec2_instance_info:
+      aws_access_key: {{ access_key}}
+      aws_secret_key: {{secret_key}}
+      region: us-east-2
+    register: ec2_info
+  - name: print instances
+    debug:
+      msg= "{{ item.instance_id }}"
+    with_items: "{{ ec2_info.instances }}"

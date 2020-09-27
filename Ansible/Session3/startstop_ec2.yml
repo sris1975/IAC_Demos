@@ -1,0 +1,20 @@
+- hosts: local
+  connection: local
+  gather_facts: false
+  tasks:
+  - name: Stop EC2 instance
+    ec2:
+      aws_access_key: {{ access_key}}
+      aws_secret_key: "{{ aws_secret_key }}"
+      instance_ids: i-0888d37c95fbde135
+      region: us-east-2
+      state: stopped
+      wait: yes
+  - name: Start EC2 instance
+    ec2:
+      aws_access_key: {{ access_key}}
+      aws_secret_key: "{{ aws_secret_key }}"
+      instance_ids: i-0888d37c95fbde135
+      region: us-east-2
+      state: started
+      wait: yes
